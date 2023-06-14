@@ -20,13 +20,13 @@ require 'php-mailer/src/SMTP.php';
 require 'php-mailer/src/Exception.php';
 
 // Step 1 - Enter your email address below.
-$email = 'you@domain.com';
+$email = 'walderdorff@live.de';
 
 // If the e-mail is not working, change the debug option to 2 | $debug = 2;
 $debug = 0;
 
 // If contact form don't has the subject input change the value of subject here
-$subject = ( isset($_POST['subject']) ) ? $_POST['subject'] : 'Define subject in php/contact-form.php line 29';
+$subject = ( isset($_POST['subject']) ) ? $_POST['subject'] : 'No subject';
 
 $message = '';
 
@@ -87,9 +87,9 @@ try {
 	$mail->Body    = $message;
 
 	// Step 3 - If you don't want to attach any files, remove that code below
-	if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] == UPLOAD_ERR_OK) {
+	/*if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] == UPLOAD_ERR_OK) {
 		$mail->AddAttachment($_FILES['attachment']['tmp_name'], $_FILES['attachment']['name']);
-	}
+	}*/
 
 	$mail->Send();
 	$arrResult = array ('response'=>'success');
